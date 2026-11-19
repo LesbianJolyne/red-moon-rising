@@ -8,6 +8,17 @@ define sm = Character("Scarlet Mask", who_color = "#a83232")
 define narrator = Character(what_italic=True)
 define wk = Character("White Knight", who_color = "#FFFFFF")
 
+transform rightside:
+    xalign 0.75
+    yalign 1.0
+
+transform leftside:
+    xalign 0.25
+    yalign 1.0
+
+transform centerside:
+    xalign 0.5
+    yalign 1.0
 
 # The game starts here.
 
@@ -23,7 +34,7 @@ label start:
     # replace it by adding a file named "eileen happy.png" to the images
     # directory.
 
-    show eileen happy
+    show eileen happy at rightside
 
     # These display lines of dialogue.
 
@@ -52,12 +63,31 @@ label start:
 
     uk "Congratulations, hero. You've finally made it."
 
-    menu firstQuestion:
-        "Who are you?":
-            jump choice1_done
-    label choice1_done:
-        uk "Me? Why, isn't it obvious? I'm Scarlet Mask."
-        
+    wk "Who are you?"
+   
+    uk "Me? Why, isn't it obvious? I'm Scarlet Mask."
+
+    wk "You? But... you're just a teenager."
+
+    sm "And? So are you."
+
+    menu:
+        "...Fair point.":
+            jump fairPoint
+        "That's not the point. What have you done with the Architects?":
+            jump architectsLocation
+    label fairPoint:
+        $ fairPointFlag = True
+
+        jump choice1Done
+
+    label architectsLocation:
+        $ architectsLocationFlag = True
+
+        jump choice1Done
+    
+    label choice1Done:
+        sm "Some dialogue"
         
 
     # This ends the game.
