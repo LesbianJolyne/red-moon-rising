@@ -40,9 +40,9 @@ label start:
 
     narrator "It's been nearly a month since this all began."
 
-    narrator "You've been investigating the disappearance of The Architects, the city's greatest team of heroes.
-    In doing so, you discovered a conspiracy leading all the way up to the highest levels of government in the
-    city."
+    narrator "You, White Knight, have been investigating the disappearance of The Architects, the city's greatest
+    team of heroes. In doing so, you discovered a conspiracy leading all the way up to the highest levels of
+    government in the city."
 
     narrator "Government officials have been involved with a group known as the Red Masks, a criminal organization
     who seem to have their fingers in every kind of illegal activity in the city. As a lone teen hero, you were
@@ -72,22 +72,116 @@ label start:
     sm "And? So are you."
 
     menu:
-        "...Fair point.":
+        "...Fair point. But how did you get so many city officials involved?":
             jump fairPoint
         "That's not the point. What have you done with the Architects?":
-            jump architectsLocation
+            jump notThePoint
     label fairPoint:
         $ fairPointFlag = True
+        $ notThePointFlag = False
 
-        jump choice1Done
+        sm "Simple. I offered them something they already wanted."
 
-    label architectsLocation:
-        $ architectsLocationFlag = True
+        wk "What do you mean?"
 
-        jump choice1Done
+        sm "All the city officials involved in the Red Masks were already corrupt. I just offered them the
+        chance to line their pockets some more."
+
+        wk "How could you possibly know that all of them were already corrupt?"
+
+        sm "Because I'm psychic."
+
+        narrator "She smiles, tapping her temple."
+
+        sm "I read their minds and saw the things they'd already done. Then I offered them more, and the greedy
+        things snatched up the opportunity."
+
+        menu:
+            "What, your organization is just to help corrupt officials get richer?":
+                sm "What an accusation. No, I'll tell you what it's for."
+                jump theWhy
+            "If you're really psychic, what am I thinking right now?":
+                jump proveIt
+
+        
+
+    label notThePoint:
+        $ notThePointFlag = True
+        $ fairPointFlag = False
+
+        sm "Don't worry. They're quite safe. They're asleep in the holding cells here."
+
+        wk "How did you capture them, anyway? They're the most powerful heroes in the city."
+
+        sm "For a team of capable heroes, they don't have very good psychic defenses. I used an amplifier on
+        my psychic powers to induce sleep so they couldn't get in my way."
+
+        menu:
+            "You monster, I'll put a stop to you!":
+                $ youMonsterFlag = True
+                jump startTheFight
+            "Get in the way of what?":
+                sm "I'm glad you asked."
+                jump theWhy
     
-    label choice1Done:
-        sm "Some dialogue"
+    label proveIt:
+        $ proveItFlag = True
+        
+        sm "You were just considering whether to ask me if the Red Masks are just around to help corrupt
+        officials get richer."
+
+    label theWhy:
+        $ theWhyFlag = True
+        
+        narrator "Scarlet Mask stands up from her chair, casually walking over to the huge computer behind the
+        throne. Now that she's drawn your attention to it, you can see it's processing some kind of data. A
+        loading bar takes up most of the main monitor."
+
+        sm "I'm technically a criminal mastermind, but it was all for a reason. These corrupt officials have
+        destroyed so many lives. They put their own interests above the needs of those they're meant to serve."
+
+        sm "So I thought, as someone who can actually tell when someone's lying, I could put my powers to good
+        use. Being psychic is all well and good, but it doesn't hold up in the court of law. I needed evidence."
+
+        sm "I approached these officials as the messenger of a mysterious criminal mastermind, Scarlet Mask. I
+        told them there was an opportunity for them to profit, and without fail every single one joined me. The
+        more they did the better, because I was watching all of them and recording every illegal activity."
+
+        narrator "She gestures to the other monitors, showing all kinds of shady dealings. A judge taking a
+        bribe here, the mayor spending government funds on himself there, all of them flashing across the
+        screens fast enough to make anyone dizzy."
+
+        sm "And now? Now I can send all this evidence out to every news organization and every upstanding official
+        left in the city. Finally, I can make these people face consequences for their actions."
+
+        narrator "She turns to you again, smiling as the loading bar behind her creeps along."
+
+        sm "The Architects tried to stop me before this was ready. But as soon as it's out there, I'll release them.
+        You though, you understand what it's like to be looked down on by adults."
+
+        narrator "Before you can protest at her invading your mind, she puts a hand up to stop you."
+
+        sm "I don't have to read your mind to know that. I've been where you are: trying to do the right thing,
+        only to have the people you look up to dismiss you. After all, why aren't you a part of the Architects?
+        You're just as accomplished as any of them."
+
+        sm "If you let me go, I can promise you the Red Masks will go away as well. After all, I collected
+        enough evidence that they should all go to jail for a long, long time."
+
+        menu:
+            "Why should I believe you?":
+                jump believeYou
+            "Even if I do, how are you going to avoid getting caught by the Architects?":
+                jump howNoArchitects
+
+    label believeYou:
+        sm "reasons"
+
+    label howNoArchitects:
+        sm "reasons"
+
+    label startTheFight:
+        narrator "fight sequence"
         
 
     # This ends the game.
