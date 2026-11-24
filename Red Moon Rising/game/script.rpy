@@ -119,9 +119,15 @@ label start:
         menu:
             "You monster, I'll put a stop to you!":
                 $ youMonsterFlag = True
+                
+                narrator "As you lunge toward her, she leaps from her throne and blocks your first blow."
+
                 jump startTheFight
+            
             "Get in the way of what?":
+                
                 sm "I'm glad you asked."
+                
                 jump theWhy
     
     label proveIt:
@@ -129,6 +135,19 @@ label start:
         
         sm "You were just considering whether to ask me if the Red Masks are just around to help corrupt
         officials get richer."
+        
+        menu:
+            "Okay, you're psychic. So... is it?":
+                
+                sm "What an accusation. No, I'll tell you what it's for."
+                
+                jump theWhy
+            
+            "So you invade people's minds. That's all the proof I need that you're evil.":
+                
+                narrator "As you lunge toward her, she leaps from her throne and blocks your first blow."
+                
+                jump startTheFight
 
     label theWhy:
         $ theWhyFlag = True
@@ -175,10 +194,69 @@ label start:
                 jump howNoArchitects
 
     label believeYou:
-        sm "reasons"
+        sm "You can take a look at the evidence yourself if you like."
 
+        narrator "She steps to the side, gesturing for you to come up to the computer. You approach, seeing the
+        evidence flash across the screens."
+
+        menu:
+            "{i}Destroy the evidence{/i}":
+                
+                $ destroyEvidenceFlag = True
+                
+                narrator "With this opportunity, you quickly type on the computer before Scarlet Mask can stop
+                you, deleting the evidence before it has a chance to finish uploading. You bring your fist down,
+                your super strength destroying the computer for good measure."
+
+                sm "You really shouldn't have done that."
+
+                narrator "She lunges at you and you barely have time to block her first attack."
+
+                jump startTheFight
+            
+            "Seems like you've got this pretty well handled. What do you need me to do?":
+
+                narrator "She smiles, clearly relieved."
+
+                sm "Once this has finished uploading, I'll wake up the Architects. While I'm making my escape, I'll
+                need you to distract them."
+
+                wk "I'll do my best"
+
+                narrator "She holds out her hand to you."
+
+                sm "Thank you. I'm glad my trust in you wasn't misplaced."
+
+                narrator "You take her hand, shaking it."
+
+                wk "You're doing the right thing. It's the least I can do to help you."
+
+                narrator "As you speak, the loading bar finishes its journey across the screen. Scarlet Mask goes to
+                the side of the room where there's some sort of elevator waiting to take her up to the surface."
+
+                narrator "As she climbs inside, she gives you one final wave, disappearing right as the Architects
+                burst into the room."
+
+                jump helpEpilogue
+        
     label howNoArchitects:
         sm "reasons"
+
+    label helpEpilogue:
+        narrator "Thanks to you, Scarlet Mask is never found. The other members of the Red Masks are almost all
+        apprehended, and those who scatter to the wind will never be able to come back to the city."
+
+        narrator "The corrupt officials of the city are prosecuted for their crimes thanks to the overwhelming evidence
+        collected on them. The Architects, while unhappy that Scarlet Mask made her escape, do their due diligence in
+        overseeing justice carried out."
+
+        narrator "Some see Scarlet Mask as a criminal mastermind through and through, still calling for the Architects
+        to find her and bring her to justice. There are some, though, who see her as a hero for what she's done. You
+        count yourself among them."
+
+        narrator "{size=+10}{b}The End{/b}{/size}"
+
+        return
 
     label startTheFight:
         narrator "fight sequence"
